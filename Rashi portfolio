@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Rashi Verma – Portfolio</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--navy:#0d2340;--navy2:#162d4a;--navy3:#1e3a5f;--gold:#c9a84c;--gold2:#e8c96a;--gold3:#f5e0a0;--white:#fff;--offwhite:#f8f6f0;--lightgray:#eceae3;--text:#1a1a2e;--muted:#5a6a7a;--border:rgba(201,168,76,0.25)}
+body{background:var(--offwhite);color:var(--text);font-family:'Segoe UI',sans-serif;font-size:15px;line-height:1.6;overflow-x:hidden}
+
+/* HERO */
+.hero{background:var(--navy);padding:2.5rem 1.5rem 2rem;text-align:center;position:relative;overflow:hidden;min-height:280px}
+#particles{position:absolute;inset:0;pointer-events:none}
+.hero-content{position:relative;z-index:2}
+.avatar{width:90px;height:90px;border-radius:50%;background:var(--navy3);border:3px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;font-size:26px;font-weight:700;color:var(--gold);animation:pulse 3s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,0.4)}50%{box-shadow:0 0 0 12px rgba(201,168,76,0)}}
+.hero h1{font-size:26px;font-weight:700;color:var(--white)}
+.hero .title{font-size:12px;color:var(--gold2);margin:.3rem 0 .5rem;letter-spacing:1.2px;text-transform:uppercase}
+#typewriter{font-size:14px;color:rgba(255,255,255,0.75);min-height:22px}
+.cursor{display:inline-block;width:2px;height:14px;background:var(--gold);animation:blink .7s infinite;vertical-align:middle;margin-left:2px}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.tags{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:.8rem 0 1rem}
+.tag{background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.3);color:var(--gold3);font-size:11px;padding:3px 12px;border-radius:20px}
+.contacts{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+.ci{display:flex;align-items:center;gap:5px;color:rgba(255,255,255,0.7);font-size:12px}
+.ci i{color:var(--gold);font-size:15px}
+
+/* MAIN */
+.main{max-width:900px;margin:0 auto;padding:1.5rem 1rem}
+.sec-title{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--border);padding-bottom:.5rem;margin-bottom:1rem}
+.sec-title i{font-size:17px}
+.section{margin-bottom:2rem;opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.section.visible{opacity:1;transform:none}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:2rem}
+.stat-card{background:var(--navy);border-radius:10px;padding:1rem;text-align:center;border:1px solid rgba(201,168,76,0.2);cursor:default;transition:transform .2s}
+.stat-card:hover{transform:translateY(-4px)}
+.stat-num{font-size:28px;font-weight:700;color:var(--gold)}
+.stat-label{font-size:11px;color:rgba(255,255,255,0.55);margin-top:4px;letter-spacing:.5px;text-transform:uppercase}
+
+/* SUMMARY */
+.card{background:var(--white);border-radius:10px;border:1px solid var(--border);padding:1.2rem 1.4rem}
+.card p{color:var(--muted);font-size:14px;line-height:1.75}
+.card p span{color:var(--text);font-weight:600}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:22px}
+.timeline::before{content:'';position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:linear-gradient(to bottom,var(--gold),rgba(201,168,76,0.15))}
+.tl-item{position:relative;margin-bottom:1.2rem}
+.tl-dot{position:absolute;left:-22px;top:6px;width:13px;height:13px;border-radius:50%;background:var(--gold);border:2px solid var(--white)}
+.tl-card{background:var(--white);border-radius:10px;border:1px solid var(--border);padding:.9rem 1.1rem;transition:border-color .2s,transform .2s;cursor:default}
+.tl-card:hover{border-color:var(--gold);transform:translateX(4px)}
+.tl-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:4px;margin-bottom:3px}
+.tl-role{font-size:14px;font-weight:700;color:var(--navy)}
+.tl-date{font-size:11px;background:rgba(201,168,76,0.12);color:var(--gold);padding:2px 9px;border-radius:20px;border:1px solid rgba(201,168,76,0.3)}
+.tl-company{font-size:12px;color:var(--gold);margin-bottom:.4rem;font-weight:500}
+.tl-bullets{list-style:none}
+.tl-bullets li{font-size:12px;color:var(--muted);padding:2px 0 2px 14px;position:relative}
+.tl-bullets li::before{content:'›';position:absolute;left:0;color:var(--gold);font-weight:700}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.skill-item{background:var(--white);border-radius:8px;border:1px solid var(--border);padding:.75rem 1rem;transition:transform .2s}
+.skill-item:hover{transform:scale(1.02)}
+.sk-top{display:flex;justify-content:space-between;margin-bottom:6px}
+.sk-name{font-size:12px;font-weight:600;color:var(--navy)}
+.sk-pct{font-size:12px;color:var(--gold);font-weight:700}
+.sk-bar{height:5px;background:var(--lightgray);border-radius:4px;overflow:hidden}
+.sk-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:4px;width:0;transition:width 1.4s cubic-bezier(.4,0,.2,1)}
+
+/* EDUCATION */
+.edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.edu-card{background:var(--white);border-radius:10px;border:1px solid var(--border);padding:1rem;display:flex;gap:10px;transition:transform .2s}
+.edu-card:hover{transform:translateY(-3px)}
+.edu-icon{width:36px;height:36px;min-width:36px;border-radius:8px;background:rgba(201,168,76,0.1);display:flex;align-items:center;justify-content:center}
+.edu-icon i{color:var(--gold);font-size:18px}
+.edu-deg{font-size:12px;font-weight:700;color:var(--navy);line-height:1.3}
+.edu-sch{font-size:11px;color:var(--muted);margin:.2rem 0}
+.edu-yr{display:inline-block;font-size:10px;background:rgba(13,35,64,0.07);color:var(--navy);padding:2px 8px;border-radius:20px}
+
+/* FLIP CERTS */
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.flip-wrap{perspective:800px;height:160px;cursor:pointer}
+.flip-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .6s ease}
+.flip-wrap:hover .flip-inner,.flip-wrap.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-front,.flip-back{position:absolute;inset:0;border-radius:10px;backface-visibility:hidden;display:flex;flex-direction:column;justify-content:center;padding:1rem 1.1rem}
+.flip-front{background:var(--navy);border:1px solid rgba(201,168,76,0.25)}
+.flip-back{background:var(--gold);transform:rotateY(180deg)}
+.flip-badge{display:inline-flex;align-items:center;gap:4px;background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.3);color:var(--gold2);font-size:10px;padding:2px 8px;border-radius:20px;margin-bottom:.4rem;width:fit-content}
+.flip-title{font-size:12px;font-weight:700;color:var(--white);line-height:1.4;margin-bottom:.3rem}
+.flip-org{font-size:11px;color:rgba(255,255,255,0.5)}
+.flip-hint{font-size:10px;color:rgba(255,255,255,0.35);margin-top:.5rem}
+.flip-back .bt{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:.3rem}
+.flip-back .bd{font-size:12px;color:var(--navy2);line-height:1.5}
+
+/* STRENGTHS */
+.str-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.str-card{background:var(--white);border-radius:10px;border:1px solid var(--border);padding:.9rem;text-align:center;transition:transform .2s}
+.str-card:hover{transform:translateY(-4px);border-color:var(--gold)}
+.str-card i{font-size:22px;color:var(--gold);display:block;margin-bottom:.4rem}
+.str-card p{font-size:11px;color:var(--muted);line-height:1.4}
+
+/* ===== GAMES SECTION ===== */
+.games-wrap{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:600px){.games-wrap{grid-template-columns:1fr}}
+
+/* QUIZ */
+.game-card{background:var(--white);border-radius:12px;border:1px solid var(--border);padding:1.2rem;min-height:260px;display:flex;flex-direction:column}
+.game-title{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:.8rem;display:flex;align-items:center;gap:6px}
+.game-title i{color:var(--gold);font-size:17px}
+.q-text{font-size:13px;color:var(--text);font-weight:500;margin-bottom:.8rem;min-height:36px}
+.q-opts{display:flex;flex-direction:column;gap:6px;flex:1}
+.q-btn{background:var(--offwhite);border:1px solid var(--border);border-radius:8px;padding:7px 12px;font-size:12px;color:var(--text);cursor:pointer;text-align:left;transition:background .15s,border-color .15s}
+.q-btn:hover{background:rgba(201,168,76,0.1);border-color:var(--gold)}
+.q-btn.correct{background:#e6f9ef;border-color:#27ae60;color:#1a6b3c;font-weight:600}
+.q-btn.wrong{background:#fdecea;border-color:#e74c3c;color:#a93226}
+.q-score{font-size:12px;color:var(--muted);margin-top:.6rem;text-align:right}
+.next-btn{margin-top:.6rem;background:var(--navy);color:var(--gold);border:none;border-radius:8px;padding:7px 16px;font-size:12px;font-weight:600;cursor:pointer;align-self:flex-start}
+.next-btn:hover{background:var(--navy3)}
+
+/* SCRAMBLE */
+.scramble-word{font-size:22px;font-weight:700;color:var(--navy);letter-spacing:4px;text-align:center;margin:.5rem 0;font-family:monospace}
+.scramble-hint{font-size:11px;color:var(--muted);text-align:center;margin-bottom:.6rem}
+#scr-input{width:100%;padding:8px 12px;border-radius:8px;border:1px solid var(--border);font-size:14px;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-align:center;background:var(--offwhite);outline:none;font-family:monospace}
+#scr-input:focus{border-color:var(--gold)}
+.scr-feedback{font-size:12px;text-align:center;margin-top:.4rem;min-height:18px;font-weight:600}
+.scr-correct{color:#27ae60}
+.scr-wrong{color:#e74c3c}
+.scr-btns{display:flex;gap:8px;margin-top:.5rem}
+.scr-btn{flex:1;padding:7px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;border:none}
+.scr-check{background:var(--navy);color:var(--gold)}
+.scr-skip{background:var(--offwhite);color:var(--muted);border:1px solid var(--border)}
+.scr-progress{font-size:11px;color:var(--muted);text-align:center;margin-top:.4rem}
+
+/* MEMORY GAME */
+.mem-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:.5rem}
+.mem-card{height:48px;border-radius:6px;background:var(--navy);border:1px solid rgba(201,168,76,0.2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;transition:transform .15s;user-select:none}
+.mem-card:hover{transform:scale(1.05)}
+.mem-card.revealed{background:rgba(201,168,76,0.15);border-color:var(--gold)}
+.mem-card.matched{background:#e6f9ef;border-color:#27ae60;cursor:default}
+.mem-card.wrong-flash{background:#fdecea;border-color:#e74c3c}
+.mem-status{font-size:11px;color:var(--muted);text-align:center;margin-top:.4rem}
+.mem-reset{margin-top:.5rem;background:var(--offwhite);color:var(--navy);border:1px solid var(--border);border-radius:8px;padding:5px 14px;font-size:12px;cursor:pointer;font-weight:600}
+
+/* FUN FACT TICKER */
+.ticker-wrap{background:var(--navy);border-radius:10px;border:1px solid rgba(201,168,76,0.2);padding:1rem 1.2rem;margin-bottom:2rem;display:flex;align-items:center;gap:12px;overflow:hidden}
+.ticker-label{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--gold);white-space:nowrap;font-weight:700}
+.ticker-text{font-size:13px;color:rgba(255,255,255,0.8);animation:slidein .4s ease;flex:1}
+@keyframes slidein{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:none}}
+.ticker-nav{display:flex;gap:6px}
+.ticker-nav button{background:transparent;border:1px solid rgba(201,168,76,0.3);color:var(--gold);border-radius:4px;width:24px;height:24px;cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center}
+
+/* CONTACT */
+.contact-footer{background:var(--navy);border-radius:12px;padding:1.4rem;text-align:center;margin-bottom:1rem}
+.contact-footer h3{color:var(--white);font-size:15px;margin-bottom:.2rem}
+.contact-footer p{color:rgba(255,255,255,0.45);font-size:12px;margin-bottom:.9rem}
+.c-btns{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.c-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:25px;font-size:12px;font-weight:600;cursor:pointer;border:none;text-decoration:none}
+.btn-gold{background:var(--gold);color:var(--navy)}
+.btn-out{background:transparent;border:1px solid rgba(201,168,76,0.4);color:var(--gold)}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <canvas id="particles"></canvas>
+  <div class="hero-content">
+    <div class="avatar">RV</div>
+    <h1>Rashi Verma</h1>
+    <div class="title">MIS Executive &nbsp;·&nbsp; Customer Service &amp; Operations</div>
+    <div id="typewriter"></div><span class="cursor"></span>
+    <div class="tags">
+      <span class="tag">Customer-Focused</span>
+      <span class="tag">Detail-Oriented</span>
+      <span class="tag">Service-Driven</span>
+    </div>
+    <div class="contacts">
+      <span class="ci"><i class="ti ti-phone"></i>+91-7505671710</span>
+      <span class="ci"><i class="ti ti-mail"></i>rashiv605@gmail.com</span>
+      <span class="ci"><i class="ti ti-map-pin"></i>New Delhi, India</span>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- FUN FACT TICKER -->
+  <div class="ticker-wrap">
+    <span class="ticker-label">✦ Did You Know?</span>
+    <span class="ticker-text" id="ticker-text"></span>
+    <div class="ticker-nav">
+      <button onclick="changeFact(-1)"><i class="ti ti-chevron-left" style="font-size:13px"></i></button>
+      <button onclick="changeFact(1)"><i class="ti ti-chevron-right" style="font-size:13px"></i></button>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat-card"><div class="stat-num" id="s1">0</div><div class="stat-label">Years Exp.</div></div>
+    <div class="stat-card"><div class="stat-num" id="s2">0</div><div class="stat-label">Companies</div></div>
+    <div class="stat-card"><div class="stat-num" id="s3">0</div><div class="stat-label">Certifications</div></div>
+    <div class="stat-card"><div class="stat-num" id="s4">0</div><div class="stat-label">Core Skills</div></div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="section">
+    <div class="sec-title"><i class="ti ti-user"></i>Professional Summary</div>
+    <div class="card"><p>Professional and well-presented <span>MIS Executive</span> with experience in operations, customer service, and corporate support. Currently at <span>HCL Technologies</span> (via Embassy Services Pvt. Ltd.), handling MIS reporting and operational coordination. Strong background in <span>client interaction, communication, and problem-solving</span>, with aviation & hospitality training. Seeking opportunities in customer service, front office, administration, or hospitality sectors.</p></div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div class="section">
+    <div class="sec-title"><i class="ti ti-briefcase"></i>Work Experience</div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-top"><span class="tl-role">MIS Executive</span><span class="tl-date">Jan 2026 – Present</span></div>
+          <div class="tl-company"><i class="ti ti-building" style="font-size:12px;vertical-align:-1px"></i> Embassy Services Pvt. Ltd. · HCL Project, Noida</div>
+          <ul class="tl-bullets">
+            <li>Managing MIS reports and operational data for internal processes</li>
+            <li>Supporting day-to-day administrative and coordination activities</li>
+            <li>Handling documentation, reporting, and workflow tracking</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-top"><span class="tl-role">Operations Officer</span><span class="tl-date">Jul 2023 – Dec 2025</span></div>
+          <div class="tl-company"><i class="ti ti-building" style="font-size:12px;vertical-align:-1px"></i> VFS Global, New Delhi</div>
+          <ul class="tl-bullets">
+            <li>Handled customer queries via email, chat, and phone</li>
+            <li>Resolved complaints ensuring high customer satisfaction</li>
+            <li>Conducted customer needs analysis to improve service quality</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="section">
+    <div class="sec-title"><i class="ti ti-tools"></i>Core Skills</div>
+    <div class="skills-grid" id="skills-grid"></div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="section">
+    <div class="sec-title"><i class="ti ti-school"></i>Education</div>
+    <div class="edu-grid">
+      <div class="edu-card"><div class="edu-icon"><i class="ti ti-certificate"></i></div><div><div class="edu-deg">Bachelor of Business Administration</div><div class="edu-sch">Mangalayatan University, UP</div><span class="edu-yr">2023–Present · Sem 6: 64.5%</span></div></div>
+      <div class="edu-card"><div class="edu-icon"><i class="ti ti-book"></i></div><div><div class="edu-deg">Higher Secondary (12th) – Commerce</div><div class="edu-sch">National Institute of Open Schooling</div><span class="edu-yr">2022 · Pass</span></div></div>
+      <div class="edu-card"><div class="edu-icon"><i class="ti ti-book-2"></i></div><div><div class="edu-deg">Secondary (10th)</div><div class="edu-sch">Central Board of Secondary Education, UP</div><span class="edu-yr">2019 · Pass</span></div></div>
+    </div>
+  </div>
+
+  <!-- FLIP CERTS -->
+  <div class="section">
+    <div class="sec-title"><i class="ti ti-award"></i>Certifications <span style="font-size:10px;color:var(--muted);font-weight:400;text-transform:none;margin-left:6px">Hover to flip!</span></div>
+    <div class="cert-grid">
+      <div class="flip-wrap" onclick="this.classList.toggle('flipped')">
+        <div class="flip-inner">
+          <div class="flip-front"><div class="flip-badge"><i class="ti ti-plane" style="font-size:11px"></i>Aviation</div><div class="flip-title">Diploma – Aviation, Hospitality, Travel & Tourism</div><div class="flip-org">Airborne Air Hostess Academy · 2022–23</div><div class="flip-hint">↻ Flip for grade details</div></div>
+          <div class="flip-back"><div class="bt">🏆 Grade A – Outstanding</div><div class="bd">Scored top grade across all modules in the one-year intensive program.</div></div>
+        </div>
+      </div>
+      <div class="flip-wrap" onclick="this.classList.toggle('flipped')">
+        <div class="flip-inner">
+          <div class="flip-front"><div class="flip-badge"><i class="ti ti-medal" style="font-size:11px"></i>Performance</div><div class="flip-title">Certificate of Performance – Overall Grade A</div><div class="flip-org">Airborne Air Hostess Academy</div><div class="flip-hint">↻ Flip for details</div></div>
+          <div class="flip-back"><div class="bt">⭐ All A Grades</div><div class="bd">A grades in Aviation, Hospitality, Retail, Travel & Tourism, Grooming, Communication, Punctuality & Active Participation.</div></div>
+        </div>
+      </div>
+      <div class="flip-wrap" onclick="this.classList.toggle('flipped')">
+        <div class="flip-inner">
+          <div class="flip-front"><div class="flip-badge"><i class="ti ti-shield-check" style="font-size:11px"></i>Character</div><div class="flip-title">Certificate of Character & Conduct</div><div class="flip-org">Airborne Air Hostess Academy</div><div class="flip-hint">↻ Flip for details</div></div>
+          <div class="flip-back"><div class="bt">✓ Excellent Conduct</div><div class="bd">Awarded for exceptional moral character and professional conduct throughout the training program.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STRENGTHS -->
+  <div class="section">
+    <div class="sec-title"><i class="ti ti-sparkles"></i>Key Strengths</div>
+    <div class="str-grid">
+      <div class="str-card"><i class="ti ti-user-check"></i><p>Professional personality for aviation & hospitality</p></div>
+      <div class="str-card"><i class="ti ti-messages"></i><p>Strong communication & client interaction</p></div>
+      <div class="str-card"><i class="ti ti-arrows-exchange"></i><p>Customer-facing & corporate environments</p></div>
+      <div class="str-card"><i class="ti ti-list-check"></i><p>Multitasking & delivering under pressure</p></div>
+      <div class="str-card"><i class="ti ti-eye"></i><p>Advanced observation & sharp decision-making</p></div>
+      <div class="str-card"><i class="ti ti-mood-happy"></i><p>Positive attitude & influencing others</p></div>
+    </div>
+  </div>
+
+  <!-- ===== ENTERTAINMENT ZONE ===== -->
+  <div class="section">
+    <div class="sec-title"><i class="ti ti-confetti"></i>Entertainment Zone — Test Yourself!</div>
+    <div class="games-wrap">
+
+      <!-- QUIZ -->
+      <div class="game-card">
+        <div class="game-title"><i class="ti ti-bulb"></i>Customer Service Quiz</div>
+        <div class="q-text" id="q-text"></div>
+        <div class="q-opts" id="q-opts"></div>
+        <div class="q-score" id="q-score"></div>
+        <button class="next-btn" id="next-btn" onclick="nextQ()" style="display:none">Next →</button>
+      </div>
+
+      <!-- WORD SCRAMBLE -->
+      <div class="game-card">
+        <div class="game-title"><i class="ti ti-puzzle"></i>Aviation Word Scramble</div>
+        <div class="scramble-word" id="scr-word"></div>
+        <div class="scramble-hint" id="scr-hint"></div>
+        <input type="text" id="scr-input" placeholder="TYPE YOUR ANSWER" autocomplete="off" onkeydown="if(event.key==='Enter')checkScramble()"/>
+        <div class="scr-feedback" id="scr-fb"></div>
+        <div class="scr-btns">
+          <button class="scr-btn scr-check" onclick="checkScramble()">Check ✓</button>
+          <button class="scr-btn scr-skip" onclick="nextScramble()">Skip →</button>
+        </div>
+        <div class="scr-progress" id="scr-prog"></div>
+      </div>
+
+      <!-- MEMORY GAME -->
+      <div class="game-card" style="grid-column:1/-1">
+        <div class="game-title"><i class="ti ti-cards"></i>Skill Match — Memory Game <span style="font-size:11px;color:var(--muted);font-weight:400">Match the pairs!</span></div>
+        <div class="mem-grid" id="mem-grid"></div>
+        <div class="mem-status" id="mem-status">Click any card to start!</div>
+        <button class="mem-reset" onclick="initMemory()">↺ Restart</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="contact-footer">
+    <h3>Get in Touch</h3>
+    <p>Open to opportunities in customer service, operations, front office & hospitality</p>
+    <div class="c-btns">
+      <a class="c-btn btn-gold" href="mailto:rashiv605@gmail.com"><i class="ti ti-mail" style="font-size:14px"></i>Email Me</a>
+      <a class="c-btn btn-out" href="tel:+917505671710"><i class="ti ti-phone" style="font-size:14px"></i>+91-7505671710</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+/* ---- PARTICLES ---- */
+(function(){
+  const c=document.getElementById('particles');
+  const ctx=c.getContext('2d');
+  function resize(){c.width=c.offsetWidth;c.height=c.offsetHeight;}
+  resize();window.addEventListener('resize',resize);
+  const pts=Array.from({length:55},()=>({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.5+.5,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4}));
+  function draw(){
+    ctx.clearRect(0,0,c.width,c.height);
+    pts.forEach(p=>{
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0||p.x>c.width)p.vx*=-1;
+      if(p.y<0||p.y>c.height)p.vy*=-1;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle='rgba(201,168,76,0.55)';ctx.fill();
+    });
+    pts.forEach((a,i)=>pts.slice(i+1).forEach(b=>{
+      const d=Math.hypot(a.x-b.x,a.y-b.y);
+      if(d<80){ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.strokeStyle=`rgba(201,168,76,${.18*(1-d/80)})`;ctx.lineWidth=.5;ctx.stroke();}
+    }));
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ---- TYPEWRITER ---- */
+const lines=['Currently at HCL Technologies, Noida','Aviation & Hospitality Trained Professional','Open to International Opportunities ✈'];
+let li=0,ci=0,del=false;
+const tw=document.getElementById('typewriter');
+function type(){
+  const txt=lines[li];
+  if(!del){tw.textContent=txt.slice(0,++ci);if(ci===txt.length){del=true;setTimeout(type,1800);return;}}
+  else{tw.textContent=txt.slice(0,--ci);if(ci===0){del=false;li=(li+1)%lines.length;}}
+  setTimeout(type,del?40:80);
+}
+setTimeout(type,600);
+
+/* ---- DID YOU KNOW ---- */
+const facts=['Rashi achieved Grade A in all 8 modules at Airborne Air Hostess Academy!','She handled customer queries across email, chat & phone at VFS Global – a global visa giant.','Rashi scored 84/100 in her BBA Dissertation – her highest subject score!','She is certified in Grooming, Communication, Hospitality & Aviation Skills.','Rashi worked as an Operations Officer for over 2.5 years before her MIS promotion.','She is currently pursuing BBA at Mangalayatan University while working full-time!'];
+let fi=0;
+document.getElementById('ticker-text').textContent=facts[fi];
+function changeFact(d){fi=(fi+d+facts.length)%facts.length;const el=document.getElementById('ticker-text');el.style.animation='none';el.textContent=facts[fi];void el.offsetWidth;el.style.animation='slidein .4s ease';}
+setInterval(()=>changeFact(1),4500);
+
+/* ---- STATS COUNT ---- */
+function countUp(id,target,suffix=''){
+  const el=document.getElementById(id);let n=0;
+  const t=setInterval(()=>{n=Math.min(n+Math.ceil(target/30),target);el.textContent=n+(suffix||'');if(n>=target)clearInterval(t);},40);
+}
+setTimeout(()=>{countUp('s1',2,'+');countUp('s2',2);countUp('s3',3);countUp('s4',7);},400);
+
+/* ---- SKILLS ---- */
+const skills=[{n:'Customer Service & Client Handling',p:95},{n:'MIS Reporting & Data Management',p:85},{n:'Communication & Interpersonal Skills',p:92},{n:'Email & Chat Support',p:90},{n:'Complaint Resolution',p:88},{n:'Hospitality & Grooming',p:93},{n:'Multitasking & Time Management',p:87}];
+const sg=document.getElementById('skills-grid');
+skills.forEach(s=>{sg.innerHTML+=`<div class="skill-item"><div class="sk-top"><span class="sk-name">${s.n}</span><span class="sk-pct">${s.p}%</span></div><div class="sk-bar"><div class="sk-fill" data-w="${s.p}"></div></div></div>`;});
+
+/* ---- SCROLL REVEAL ---- */
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');if(e.target.querySelector('.sk-fill'))e.target.querySelectorAll('.sk-fill').forEach(f=>f.style.width=f.dataset.w+'%');}});},{threshold:.12});
+document.querySelectorAll('.section').forEach(s=>obs.observe(s));
+
+/* ---- QUIZ ---- */
+const qs=[
+  {q:'What is the first step when handling an angry customer?',opts:['Argue back','Listen actively without interrupting','Transfer the call','Hang up'],a:1},
+  {q:'Rashi worked at VFS Global as an Operations Officer from:',opts:['Jan 2022','Jul 2023','Mar 2024','Jun 2025'],a:1},
+  {q:'Which skill is MOST important in customer service?',opts:['Speed typing','Empathy & communication','Technical coding','Finance'],a:1},
+  {q:'What does MIS stand for in Rashi\'s current role?',opts:['Management Information Systems','Marketing & IT Services','Manual Invoice System','Multi-Input Support'],a:0},
+  {q:'Rashi\'s aviation diploma is from which institution?',opts:['IATA','IndiGo Academy','Airborne Air Hostess Academy','Air India Training'],a:2},
+];
+let qi=0,score=0,answered=false;
+function loadQ(){
+  if(qi>=qs.length){document.getElementById('q-text').textContent='🎉 Quiz complete!';document.getElementById('q-opts').innerHTML=`<p style="color:var(--gold);font-size:14px;font-weight:700">Your score: ${score}/${qs.length}</p><p style="color:var(--muted);font-size:12px">${score===qs.length?'Perfect! You know Rashi well! 🏆':score>=3?'Great job! 👏':'Keep exploring! 💪'}</p>`;document.getElementById('next-btn').style.display='none';return;}
+  const q=qs[qi];answered=false;
+  document.getElementById('q-text').textContent=`Q${qi+1}. ${q.q}`;
+  document.getElementById('q-opts').innerHTML=q.opts.map((o,i)=>`<button class="q-btn" onclick="answerQ(${i})">${o}</button>`).join('');
+  document.getElementById('q-score').textContent=`Score: ${score}/${qi}`;
+  document.getElementById('next-btn').style.display='none';
+}
+function answerQ(i){
+  if(answered)return;answered=true;
+  const btns=document.querySelectorAll('.q-btn');
+  btns[qs[qi].a].classList.add('correct');
+  if(i!==qs[qi].a)btns[i].classList.add('wrong');else score++;
+  document.getElementById('q-score').textContent=`Score: ${score}/${qi+1}`;
+  document.getElementById('next-btn').style.display='inline-block';
+}
+function nextQ(){qi++;loadQ();}
+loadQ();
+
+/* ---- SCRAMBLE ---- */
+const words=[{w:'AVIATION',h:'The field Rashi is trained in ✈'},
+  {w:'HOSPITALITY',h:'Service with warmth & care 🤝'},
+  {w:'CUSTOMER',h:'Who Rashi serves every day 😊'},
+  {w:'GROOMING',h:'Looking professional always 💼'},
+  {w:'TOURISM',h:'Travel & holiday industry 🌍'},
+  {w:'OPERATIONS',h:'Rashi\'s first job title domain ⚙️'},
+  {w:'COMMUNICATION',h:'Her strongest professional skill 🗣️'}];
+let si=0,scrScore=0;
+function scramble(w){let a=w.split('');for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a.join('')===w?scramble(w):a.join('');}
+function loadScramble(){
+  const item=words[si];
+  document.getElementById('scr-word').textContent=scramble(item.w);
+  document.getElementById('scr-hint').textContent=`Hint: ${item.h}`;
+  document.getElementById('scr-input').value='';
+  document.getElementById('scr-fb').textContent='';
+  document.getElementById('scr-prog').textContent=`Word ${si+1} of ${words.length} · Score: ${scrScore}`;
+}
+function checkScramble(){
+  const val=document.getElementById('scr-input').value.trim().toUpperCase();
+  const fb=document.getElementById('scr-fb');
+  if(!val){fb.textContent='Type something!';fb.className='scr-feedback';return;}
+  if(val===words[si].w){fb.textContent='✓ Correct! Well done!';fb.className='scr-feedback scr-correct';scrScore++;setTimeout(nextScramble,900);}
+  else{fb.textContent='✗ Try again!';fb.className='scr-feedback scr-wrong';}
+}
+function nextScramble(){si=(si+1)%words.length;loadScramble();}
+loadScramble();
+
+/* ---- MEMORY GAME ---- */
+const memItems=['✈️','✈️','💼','💼','🌍','🌍','🤝','🤝','🗣️','🗣️','⭐','⭐','📊','📊','🎓','🎓'];
+let memFlipped=[],memMatched=0,memLocked=false,memMoves=0;
+function initMemory(){
+  memMatched=0;memMoves=0;memFlipped=[];memLocked=false;
+  const shuffled=[...memItems].sort(()=>Math.random()-.5);
+  const g=document.getElementById('mem-grid');
+  g.innerHTML=shuffled.map((e,i)=>`<div class="mem-card" data-i="${i}" data-v="${e}" onclick="flipMem(this)">?</div>`).join('');
+  document.getElementById('mem-status').textContent='Click any card to start!';
+}
+function flipMem(el){
+  if(memLocked||el.classList.contains('matched')||el.classList.contains('revealed'))return;
+  el.textContent=el.dataset.v;el.classList.add('revealed');
+  memFlipped.push(el);
+  if(memFlipped.length===2){
+    memMoves++;memLocked=true;
+    const [a,b]=memFlipped;
+    if(a.dataset.v===b.dataset.v){
+      a.classList.add('matched');b.classList.add('matched');
+      a.classList.remove('revealed');b.classList.remove('revealed');
+      memMatched++;memFlipped=[];memLocked=false;
+      document.getElementById('mem-status').textContent=memMatched===8?`🎉 Completed in ${memMoves} moves!`:`Matched ${memMatched}/8 · Moves: ${memMoves}`;
+    } else {
+      document.getElementById('mem-status').textContent=`Moves: ${memMoves}`;
+      setTimeout(()=>{
+        [a,b].forEach(c=>{c.classList.add('wrong-flash');});
+        setTimeout(()=>{[a,b].forEach(c=>{c.textContent='?';c.classList.remove('revealed','wrong-flash');});memFlipped=[];memLocked=false;},500);
+      },300);
+    }
+  }
+}
+initMemory();
+</script>
+</body>
+</html>
